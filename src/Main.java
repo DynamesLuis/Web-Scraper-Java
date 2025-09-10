@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
         HttpClient httpClient = new HttpClient();
         httpClient.connectToPage();
-        httpClient.getTable();
-        httpClient.getTeamsRow();
+        httpClient.getTeamsInfo();
     }
 }

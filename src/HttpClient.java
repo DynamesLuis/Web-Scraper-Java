@@ -17,20 +17,23 @@ public class HttpClient {
         }
     }
 
-    public void getTable() {
-        teamsTable = html.select("#teams_active");
+    public void getTeamsInfo() {
+        getTable();
         Elements teamsRow = teamsTable.select("tbody tr:not(.partial_table)");
         for (Element teamRow : teamsRow) {
-            System.out.println(teamRow);
+            Elements teamThs = teamRow.select("td");
+            for (Element th : teamThs) {
+                String thText = th.text();
+                System.out.println(thText);
+            }
         }
     }
 
-    public void getTeamsRow() {
-        Elements teamsRow = teamsTable.select("tbody tr:not(.partial_table)");
-        for (Element teamRow : teamsRow) {
-            System.out.println(teamRow);
-        }
+    public void getTable() {
+        teamsTable = html.select("#teams_active");
     }
+
+
 
 }
 
