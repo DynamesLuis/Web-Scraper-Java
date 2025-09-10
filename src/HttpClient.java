@@ -4,10 +4,13 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HttpClient {
     Document html;
     Elements teamsTable;
+    ArrayList<ArrayList<String>> teamsInfo = new ArrayList<>();
 
     public void connectToPage() {
         try {
@@ -17,16 +20,20 @@ public class HttpClient {
         }
     }
 
-    public void getTeamsInfo() {
+    public ArrayList<ArrayList<String>> getTeamsInfo() {
         getTable();
         Elements teamsRow = teamsTable.select("tbody tr:not(.partial_table)");
         for (Element teamRow : teamsRow) {
             Elements teamThs = teamRow.select("td");
+            ArrayList<String> teamInfo = new ArrayList<>();
             for (Element th : teamThs) {
                 String thText = th.text();
-                System.out.println(thText);
+                //System.out.println(thText);
+                teamInfo.add(thText);
             }
+            teamsInfo.add(teamInfo);
         }
+        return teamsInfo;
     }
 
     public void getTable() {
