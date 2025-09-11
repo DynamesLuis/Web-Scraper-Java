@@ -7,6 +7,7 @@ public class Main {
         WriteFIle writeFIle = new WriteFIle();
 
         httpClient.connectToPage();
+        httpClient.getTable();
         ArrayList<ArrayList<String>> teamsInfo = httpClient.getTeamsInfo();
         try {
             writeFIle.createCSV("teamsData", teamsInfo);

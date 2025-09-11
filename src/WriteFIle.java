@@ -16,13 +16,13 @@ public class WriteFIle {
         }
     }
 
-    public String convertToCSV(ArrayList<String> data) {
+    private String convertToCSV(ArrayList<String> data) {
         return data.stream()
                 .map(this::escapeSpecialCharacters)
                 .collect(Collectors.joining(","));
     }
 
-    public String escapeSpecialCharacters(String data) {
+    private String escapeSpecialCharacters(String data) {
         if (data == null) {
             throw new IllegalArgumentException("Input data cannot be null");
         }

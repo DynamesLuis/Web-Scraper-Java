@@ -20,8 +20,11 @@ public class HttpClient {
         }
     }
 
+    public void getAllPlayers() {
+
+    }
+
     public ArrayList<ArrayList<String>> getTeamsInfo() {
-        getTable();
         Elements teamsRow = teamsTable.select("tbody tr:not(.partial_table)");
         for (Element teamRow : teamsRow) {
             Elements teamThs = teamRow.select("td");
