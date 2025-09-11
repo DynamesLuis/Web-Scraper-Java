@@ -28,7 +28,6 @@ public class HttpClient {
             ArrayList<String> teamInfo = new ArrayList<>();
             for (Element th : teamThs) {
                 String thText = th.text();
-                //System.out.println(thText);
                 teamInfo.add(thText);
             }
             teamsInfo.add(teamInfo);
@@ -39,9 +38,6 @@ public class HttpClient {
     public void getTable() {
         teamsTable = html.select("#teams_active");
     }
-
-
-
 }
 
 
