@@ -6,10 +6,10 @@ import java.util.stream.Collectors;
 
 public class WriteFIle {
 
-    public void createCSV(String fileName, ArrayList<ArrayList<String>> data) throws IOException {
+    public void createCSV(String fileName, ArrayList<ArrayList<String>> data, String header) throws IOException {
         File csvOutputFile = new File(fileName);
         try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
-            pw.println("Franchise, From, To, G, W, L, W-L%, G>.500, Divs, Pnnts, WS, Playoff, Players, HOF#, R, AB, H, HR, BA, RA, ERA");
+            pw.println(header);
             data.stream()
                     .map(this::convertToCSV)
                     .forEach(pw::println);
